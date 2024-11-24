@@ -1,15 +1,42 @@
-# cintel-04-local
-Cintel Project 4
-Melissa Stone Rogers, [GitHub](https://github.com/meldstonerogers/cintel-04-local)
+# cintel-05-cintel
+Cintel Project 5
+Melissa Stone Rogers, [GitHub](https://github.com/meldstonerogers/cintel-05-cintel)
 
 ## Introduction
-Professional project using git, python, and shiny to publish reactive shiny app. 
-Commands were used on a Mac machine running zsh. Project was guided by Dr. Denise Case's GitHub repository, [pyshiny-penguine-dashboard-express](https://github.com/denisecase/pyshiny-penguins-dashboard-express).
+Professional project using python, shiny, and reactive.calc function to publish a reactive shiny app with continuous intelligence. 
+Commands were used on a Mac machine running zsh. Project was guided by the following respository's by Dr. Denise Case: [basic app](https://github.com/denisecase/cintel-05-cintel-basic), [fancy app](https://github.com/denisecase/cintel-05-cintel-fancy), and [final CI app](https://github.com/denisecase/cintel-05-cintel).  
 
 
-## How to Install and Run the Project
-Create project repository in Github and clone to your machine.
+## Project Set Up and Dependency Management 
+### Build project in GitHub
+Create project repository in Github. Create a requirements.txt and .gitignore file for Python code. Add the following to your requirements.txt: 
+- faicons 
+- pandas
+- pyarrow
+- plotly
+- scipy
+- shiny
+- shinylive 
+- shinywidgets
+- shinyswatch
+- palmerpenguins
+- seaborn
 
+Publish GitHub Pages for your project repository.
+Create a docs folder within your repository to keep your GitHub Pages content separate from your main project files. Within your GitHub repository, select add file and create a docs folder with, **docs/.gitkeep**. This allows a folder to be created with no content. 
+
+The following instructions borrowed from Dr. Cases's Continous Intelligence Course within NWSU's School of Computer Science and Information Systems: 
+
+1. Go to the repository on GitHub and navigate to the **Settings** tab.
+2. Scroll down and click the **Pages** section down the left.
+3. Select branch main as the source for the site.
+4. Change from the root folder to the docs folder to publish from.
+5. Click Save and wait for the site to build.
+6. Eventually, be patient, your app will be published and if you scroll to the top of the Pages tab, you'll see your github.io URL for the hosted web app. Copy this to your clipboard. 
+7. Back on the main repo page, find the About section of the repo (kind of upper right).
+8. Edit the "About" section of the repository to include a link to your hosted web app by using the Pages URL. 
+
+### Clone repository to your machine
 ```
 git clone project.url
 ```
@@ -22,38 +49,32 @@ python3 --version
 python3 -m venv venv
 source venv/bin/activate
 ```
-Create requirements.txt in the root project folder if you have note already done so in your GitHub repository. 
-```
-touch requirements.txt
-```
+## Install required packages and dependencies into virtual enviornment
 
-Install packages into virtual enviornment
-```
-python3 -m pip install --upgrade pip setuptools
-python3 -m pip install --upgrade -r requirements.txt
-pip install shinylive
+Install VS Code Extension for Shiny if you have not done so already.
 
+Install required packages and dependencies. 
 ```
-Install VS Code Extension for Shiny.
-
-## Freeze Dependencies 
+pip install -r requirements.txt
+```
+Freeze dependencies to requirements.txt  
 ```
 python3 -m pip freeze > requirements.txt
 ```
 
-## Initial Project Save
+### Initial Project Save
 ```
 git add .
 git commit -m "initial"                         
 git push origin main
 ```
-### Start and Complete Project 
-Follow instructions within Dr. Case's GitHub repository, [pyshiny-penguine-dashboard-express](https://github.com/denisecase/pyshiny-penguins-dashboard-express) and other course content provided. 
+## Start Your Project 
+Follow instructions within Dr. Case's GitHub repositories: [basic app](https://github.com/denisecase/cintel-05-cintel-basic); [fancy app](https://github.com/denisecase/cintel-05-cintel-fancy); [final CI app](https://github.com/denisecase/cintel-05-cintel), and other course content provided. 
 
-#### Troubleshooting
+### Troubleshooting
 Using the following code, I attempted to run my Shiny app within a web browser. 
 ```
-shiny run --reload --launch-browser penguins/app.py
+shiny run --reload --launch-browser dashboard/app.py
 ```
 
 I got numerous errors and my app would not run and launch. Thanks to dilligent colleagues within the NWSU's Continuous Intelligence course, the following troubleshooting was noted. To successfully launch my Shiny app, I downgraded websockets to version 10.4 from 14.0 using the following code.
@@ -70,22 +91,3 @@ git add .
 git commit -m "final"                         
 git push origin main
 ```
-
-## Resources 
-This section was copied and pasted from Dr. Case's GitHub repository, [pyshiny-penguine-dashboard-express](https://github.com/denisecase/pyshiny-penguins-dashboard-express). Please note the following resources below. 
-
-Example csv data from [penguins.csv](https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv).
-Used for review only. In the app, we import the data from the palmerpenguins package.
-
-Palmer Penguins published in:
-
-- Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer
-Archipelago (Antarctica) penguin data. R package version 0.1.0.
- <https://allisonhorst.github.io/palmerpenguins/>. doi:
-10.5281/zenodo.3960218.
-
-Data originally published in:
-
-- Gorman KB, Williams TD, Fraser WR (2014). Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus Pygoscelis). PLoS ONE 9(3):e90081. <https://doi.org/10.1371/journal.pone.0090081>
-
-The Shiny development team. Shiny for Python [Computer software]. <https://github.com/posit-dev/py-shiny>
